@@ -1,6 +1,4 @@
-Sure, here's the equivalent JavaScript code:
 
-```javascript
 function solve(num) {
     let first_score = 0;
     let second_score = 0;
@@ -41,6 +39,3 @@ function solve(num) {
 const inputArray = [1, 2, 3, 4, 5, 6];
 const result = solve(inputArray);
 console.log(result);
-```
-
-This JavaScript code mirrors the logic of the provided Python code and can be used in a similar way.
