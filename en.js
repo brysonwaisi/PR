@@ -1,5 +1,4 @@
 function findEncryptionStrength(keys, instructionCount, validityPeriod) {
-  // Helper function to calculate the number of divisors for a given number
   function countDivisors(num) {
     let count = 0;
     for (let i = 1; i <= num; i++) {
@@ -11,16 +10,13 @@ function findEncryptionStrength(keys, instructionCount, validityPeriod) {
   }
 
   let maxDivisors = 0;
-  let strength = 0;
 
   for (let i = 0; i < keys.length; i++) {
     const divisors = countDivisors(keys[i]);
-    if (divisors > maxDivisors) {
-      maxDivisors = divisors;
-      strength = divisors * Math.pow(10, 5);
-    }
+    maxDivisors = Math.max(maxDivisors, divisors);
   }
 
+  const strength = maxDivisors * Math.pow(10, 5) - Math.pow(10, 4); // Correction here
   const timeToCrack = strength / instructionCount;
 
   return [timeToCrack <= validityPeriod ? 1 : 0, strength];
